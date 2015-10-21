@@ -7,8 +7,6 @@ import eu.jwvl.phonlib.constraint.harmony.ViolationVector;
 import eu.jwvl.phonlib.constraint.hierarchy.Constraint;
 import eu.jwvl.phonlib.constraint.hierarchy.ListingConstraint;
 
-import java.util.Arrays;
-
 /**
  * Created by janwillem on 03/10/15.
  */
@@ -63,6 +61,11 @@ public class SimpleTableau implements Tableau<String,String> {
     @Override
     public ViolationVector[] getViolationVectors() {
         return violationVectors;
+    }
+
+    @Override
+    public Candidate[] getWinners() {
+        return new Candidate[0];
     }
 
     public int getNumCandidates() {
