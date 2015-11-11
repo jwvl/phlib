@@ -12,8 +12,17 @@ import eu.jwvl.phonlib.symbol.types.SpeechSound;
  *
  */
 public class Phone {
-	private SpeechSound sound;
-	private Diacritic diacritic;
+	private final SpeechSound sound;
+	private final Diacritic diacritic;
+
+	private Phone(SpeechSound sound, Diacritic diacritic) {
+		this.sound = sound;
+		this.diacritic = diacritic;
+	}
+
+	public static Phone createFromSpeechSound(SpeechSound sound) {
+		return new Phone(sound,Diacritic.NULL);
+	}
 
 	public String toString() {
 		return sound.toString();

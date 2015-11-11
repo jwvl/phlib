@@ -13,6 +13,8 @@ import eu.jwvl.phonlib.symbol.encoding.PhoneticEncodingMap;
  */
 public class Diacritic extends PhoneticUnit {
 
+	public static final Diacritic NULL = new Diacritic(null,"");
+
 	/**
 	 * @param encodingMap
 	 * @param classification

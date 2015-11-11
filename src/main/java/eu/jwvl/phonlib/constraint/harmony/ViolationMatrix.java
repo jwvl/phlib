@@ -50,7 +50,7 @@ public class ViolationMatrix {
 
     }
 
-    private int width() {
+    public int width() {
         return violationVectors[0].size();
     }
 
@@ -60,5 +60,24 @@ public class ViolationMatrix {
 
     public int[] getFatalViolationIndices() {
         return fatalViolationIndices;
+    }
+
+    public ViolationVector[] getViolationVectors() {
+        return violationVectors;
+    }
+
+    public String violationsToString(int vectorIndex, int constraintIndex) {
+        StringBuilder builder = new StringBuilder();
+        ViolationVector vector = violationVectors[vectorIndex];
+        int numViolations = vector.getViolationsAtIndex(constraintIndex);
+        int minViolationAt = minViolations[constraintIndex];
+        boolean hasFatalViolation = (fatalViolationIndices[vectorIndex] == constraintIndex);
+        for (int i=0; i < numViolations; i++) {
+            builder.append("*");
+            if (hasFatalViolation && i == minViolationAt) {
+                builder.append("!");
+            }
+        }
+        return builder.toString();
     }
 }

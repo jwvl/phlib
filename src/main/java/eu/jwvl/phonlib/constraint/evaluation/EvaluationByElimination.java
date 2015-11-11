@@ -39,4 +39,8 @@ public class EvaluationByElimination implements EvaluationFunction {
         }
         return result;
     }
+
+    public ViolationMatrix getViolationMatrix() {
+        return violationMatrix;
+    }
 }

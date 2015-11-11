@@ -54,21 +54,17 @@ public class FeatureSegmentInventoryReader {
 			if (currentUnit instanceof SpeechSound) {
 				SpeechSound speechSound = (SpeechSound) currentUnit;
 				FeatureBundle bundle = getFeatureBundle(i);
-				FeaturePhonologicalUnit currentSegment = FeaturePhonologicalUnit.create(speechSound, bundle);
+				FeaturePhonologicalUnit currentSegment = FeaturePhonologicalUnit.createFromSpeechSoundAndBundle(speechSound, bundle);
 				result.addSegment(currentSegment);
 			} else {
 				System.out.println(phoneString+ " is no speech sound.");
 			}
-			
-
 		}
 		return result;
 
 	}
 
 	/**
-	 * @param i
-	 * @return
 	 */
 	private FeatureBundle getFeatureBundle(int row) {
 		FeatureBundleBuilder builder = new FeatureBundleBuilder();

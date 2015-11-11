@@ -4,6 +4,7 @@
 package eu.jwvl.phonlib.representation.segment;
 
 import eu.jwvl.phonlib.feature.bundle.FeatureBundle;
+import eu.jwvl.phonlib.symbol.types.SpeechSound;
 
 /**
  * @author jwvl
@@ -23,6 +24,11 @@ public class FeaturePhonologicalUnit implements PhonologicalUnit {
 	}
 	
 	public static FeaturePhonologicalUnit create(Phone phone, FeatureBundle features) {
+		return new FeaturePhonologicalUnit(phone, features);
+	}
+
+	public static FeaturePhonologicalUnit createFromSpeechSoundAndBundle(SpeechSound sound, FeatureBundle features) {
+		Phone phone = Phone.createFromSpeechSound(sound);
 		return new FeaturePhonologicalUnit(phone, features);
 	}
 	

@@ -36,7 +36,8 @@ public class FeatureBundle implements Iterable<Feature> {
 	 * @return
 	 */
 	private static FeatureBundle createEmpty() {
-		return new FeatureBundle(ImmutableSet.builder());
+		ImmutableSet.Builder<Feature> emptyBuilder = ImmutableSet.builder();
+		return new FeatureBundle(emptyBuilder);
 	}
 	
 	public FeatureBundle copyAndAdd(Feature toAdd) {
