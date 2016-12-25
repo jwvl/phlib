@@ -38,6 +38,18 @@ public class ByteVector implements ViolationVector {
         return contents.length;
     }
 
+    @Override
+    public String printAsDigits() {
+        StringBuilder result = new StringBuilder();
+        for (int i=0; i < contents.length; i++) {
+            result.append(contents[i]);
+            if (i < contents.length-1) {
+                result.append(" ");
+            }
+        }
+        return result.toString();
+    }
+
     public static ByteVector fromCandidateAndConstraints(Candidate candidate, Constraint[] constraintList) {
         byte[] result = new byte[constraintList.length];
         for (int i=0; i < result.length; i++) {

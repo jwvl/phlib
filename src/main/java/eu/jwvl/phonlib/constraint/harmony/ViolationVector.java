@@ -8,4 +8,5 @@ public interface ViolationVector {
     public byte getViolationsAtIndex(int index);
     public int getLeftmostViolationIndex();
     public int size();
+    public String printAsDigits();
 }

@@ -3,15 +3,12 @@
  */
 package eu.jwvl.phonlib.feature.bundle;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-
 import eu.jwvl.phonlib.feature.Feature;
+
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author jwvl
@@ -19,7 +16,7 @@ import eu.jwvl.phonlib.feature.Feature;
  *
  */
 public class FeatureBundle implements Iterable<Feature> {
-	private final Map<String,Feature> map;
+	private final ImmutableMap<String,Feature> map;
 	private final Set<Feature> featureSet;
 	private static FeatureBundle EMPTY = createEmpty();
 	
@@ -88,10 +85,6 @@ public class FeatureBundle implements Iterable<Feature> {
 	public Feature getFeature(String attribute) {
 		if (map.containsKey(attribute)) {
 			return map.get(attribute);
-		} else if (getSize() > 0){
-			Iterator<String> iterator = map.keySet().iterator();
-			Feature dummyFeature = map.get(iterator.next());
-			return dummyFeature.getNullFeature(attribute);
 		} else {
 			return null;
 		}

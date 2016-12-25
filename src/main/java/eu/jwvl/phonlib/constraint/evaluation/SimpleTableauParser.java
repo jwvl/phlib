@@ -1,5 +1,6 @@
 package eu.jwvl.phonlib.constraint.evaluation;
 
+import com.google.common.base.Charsets;
 import eu.jwvl.phonlib.constraint.candidate.SimpleCandidate;
 import eu.jwvl.phonlib.constraint.harmony.ViolationMethods;
 import eu.jwvl.phonlib.constraint.hierarchy.ListingConstraint;
@@ -7,10 +8,8 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -47,7 +46,8 @@ public class SimpleTableauParser {
         }
         ListingConstraint[] constraintArray = constraintList.toArray(new ListingConstraint[constraintList.size()]);
         SimpleCandidate[] candidateArray = candidateList.toArray(new SimpleCandidate[candidateList.size()]);
-        return new SimpleTableau(input, candidateArray, constraintArray);
+        SimpleTableau result = new SimpleTableau(input, candidateArray, constraintArray);
+        return result;
     }
 
     private List<ListingConstraint> parseConstraints() {
@@ -61,18 +61,36 @@ public class SimpleTableauParser {
         return constraints;
     }
 
-    public static SimpleTableau parseFromFile(String filePath, CSVFormat format) {
-        InputStream in = SimpleTableauParser.class.getResourceAsStream(filePath);
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
+    public static SimpleTableau parseFromFile(String filePath) {
+        CSVFormat format = determineFormat(filePath);
+
+        ClassLoader classLoader = SimpleTableauParser.class.getClassLoader();
+        String fileString = classLoader.getResource(""+filePath).getFile();
+        File text = new File(fileString);
+        System.out.println(text.exists());
         CSVParser parser = null;
         try {
-            parser = new CSVParser(bufferedReader, format);
+            parser = CSVParser.parse(text, Charsets.UTF_8, format);
         } catch (IOException e) {
+            System.err.println("File not found!");
             e.printStackTrace();
             return null;
         }
         SimpleTableauParser simpleTableauParser = new SimpleTableauParser(parser);
         return simpleTableauParser.buildTableau();
+    }
+
+    private static CSVFormat determineFormat(String filePath) {
+        int dotIndex = filePath.lastIndexOf(".");
+        if (dotIndex >= 0) {
+            String extension = filePath.substring(dotIndex+1);
+            if (extension.equals("xls") || extension.equals("xlsx")) {
+                return CSVFormat.EXCEL.withHeader();
+            } else if (extension.equals("csv") || extension.equals("txt")) {
+                return CSVFormat.DEFAULT.withHeader();
+            }
+        }
+        return CSVFormat.DEFAULT.withHeader();
     }
 
 

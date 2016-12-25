@@ -1,4 +1,4 @@
-package eu.jwvl.phonlib.rule;
+package eu.jwvl.phonlib.rule.rewrite;
 
 import eu.jwvl.phonlib.representation.structure.Form;
 
@@ -8,4 +8,5 @@ import eu.jwvl.phonlib.representation.structure.Form;
 public interface RewriteRule<F extends Form> {
     public String getName();
     public F rewrite(F original);
+    public boolean isIterative();
 }

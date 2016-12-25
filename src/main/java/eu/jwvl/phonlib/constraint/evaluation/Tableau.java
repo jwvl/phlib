@@ -7,10 +7,20 @@ import eu.jwvl.phonlib.constraint.harmony.ViolationVector;
 /**
  * Created by janwillem on 03/10/15.
  */
-public interface Tableau<I,O> {
-    public I getInput();
-    public Candidate<I,O>[] getCandidates();
-    public Constraint[] getConstraints();
-    public ViolationVector[] getViolationVectors();
-    public Candidate[] getWinners();
+public interface Tableau<I, O> {
+    I getInput();
+
+    Candidate[] getCandidates();
+
+    Constraint[] getConstraints();
+
+    ViolationVector[] getViolationVectors();
+
+    Candidate[] getWinners();
+
+    boolean isWinner(Candidate candidate);
+
+    EvaluationFunction getEvaluationFunction();
+
+    double[] getRankingValues();
 }

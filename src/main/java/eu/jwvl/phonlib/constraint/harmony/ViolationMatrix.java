@@ -14,7 +14,7 @@ public class ViolationMatrix {
     private int[] fatalViolationIndices;
 
     public ViolationMatrix(Constraint[] constraints, Candidate[] candidates) {
-        violationVectors = new ViolationVector[constraints.length];
+        violationVectors = new ViolationVector[candidates.length];
         for (int i = 0; i < candidates.length; i++) {
             violationVectors[i] = ByteVector.fromCandidateAndConstraints(candidates[i], constraints);
         }
@@ -48,6 +48,10 @@ public class ViolationMatrix {
             col++;
         }
 
+    }
+
+    public boolean isGreyedOut(int vectorIndex, int constraintIndex) {
+        return (constraintIndex > fatalViolationIndices[vectorIndex]);
     }
 
     public int width() {
