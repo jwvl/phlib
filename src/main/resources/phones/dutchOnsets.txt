@@ -1,62 +1,62 @@
-p
-pl
-pr
-b
-bl
-br
-t
-tʲ
-tr
-tʋ
-d
-dr
-dʋ
-k
-kn
-kl
-kr
-kʋ
-g
-gl
-gr
-gʋ
-f
-fl
-fr
-v
-vl
-vr
-s
-sp
-st
-stʲ
-sk
-sm
-sl
-sx
-sɣ
-z
-zʋ
-x
-xr
-xl
-xʋ
-ɣ
-ɣr
-ɣl
-ɣʋ
-ʋ
-ʋr
-spl
-spr
-str
-skl
-skr
-sxr
-sɣr
-m
-n
-l
-r
-j
-ɦ
+p	-p-
+pl 	-pl
+pr 	-pr
+b	-b-
+bl 	-bl
+br 	-br
+t	-t-
+tj	-tj
+tr	-tr
+tʋ	-tʋ
+d 	-d-
+dr	-dr
+dʋ	-dʋ
+k	-k-
+kn	-kn
+kl	-kl
+kr	-kr
+kʋ	-kʋ
+g	-g-
+gl	-gl
+gr	-gr
+gʋ	-gʋ
+f	-f-
+fl	-fl
+fr	-fr
+v	-v-
+vl	-vl
+vr	-vr
+s	-s-
+sp	sp-
+st	st-
+stj	stj
+sk	sk-
+sm	sm-
+sl	sl-
+sx	sx-
+sɣ	sɣ-
+z	-z-
+zʋ	-zʋ	
+x	-x-
+xr	-xr
+xl	-xl
+xʋ	-xʋ
+ɣ	-ɣ-
+ɣr	-ɣr
+ɣl	-ɣl
+ɣʋ	-ɣʋ
+ʋ	-ʋ-
+ʋr	-ʋr
+spl	spl
+spr	spr
+str	str
+skl	skl
+skr	skr
+sxr	sxr
+sɣr	sɣr
+m	m
+n	n
+l	l
+r	r
+j	j
+ɦ	ɦ
