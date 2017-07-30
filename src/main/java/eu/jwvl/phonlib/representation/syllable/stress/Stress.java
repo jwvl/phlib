@@ -4,7 +4,7 @@ package eu.jwvl.phonlib.representation.syllable.stress;
  * Created by janwillem on 02/04/16.
  */
 public enum Stress {
-    NONE(""), SECUNDARY("ˌ"), PRIMARY("ˈ"),PRE("<"),POST(">");
+    NONE(""), SECONDARY("ˌ"), PRIMARY("ˈ"),PRE("<"),POST(">");
     final String symbol;
 
     Stress(String symbol) {
@@ -15,7 +15,7 @@ public enum Stress {
         if (input == '\'') {
             return PRIMARY;
         } else if (input == 'ˌ') {
-            return SECUNDARY;
+            return SECONDARY;
         } else {
             return NONE;
         }
